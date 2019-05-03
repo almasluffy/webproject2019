@@ -1,4 +1,4 @@
-# PorqueTime - language center
+# PorqueShop - online shop
 
 ### Team Members
 | Name | GitHub account |
@@ -9,4 +9,4 @@
 
 ### Project Description
 
-You can not decide to enroll in courses? Or do not have enough time? Now you can use our "PorqueTime" website and regiister for any language course you want to take.
+Always not enough time to make a purchase? Order in our online store and we will deliver anywhere in the world by any means of transport. Your comfort is our job.
