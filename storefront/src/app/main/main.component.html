@@ -1,0 +1,17 @@
+
+
+<ng-container *ngIf = "!logged">
+  <div>
+    <div><input type="text" [(ngModel)] = "login" /></div>
+    <div><input type="text" [(ngModel)] = "password"/></div>
+    <div><button (click)="auth()">Log in</button></div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf = "logged">
+         <h1>Hey I have logged</h1>
+<div>
+  <button (click)="logout()">Log out</button>
+</div>
+
+</ng-container>
