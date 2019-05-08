@@ -19,7 +19,7 @@ def login(request):
     serializer = AuthTokenSerializer(data=request.data)
     serializer.is_valid(raise_exception=True)
     user = serializer.validated_data.get('user')
-    token, created = Token.objects.get_or_create(user=user)
+    token, created = Token.objects.get_or_create(user=ser)
     return Response({'token':token.key})
 
 @api_view(['POST'])

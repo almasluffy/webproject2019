@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 class Country(models.Model):
@@ -17,7 +18,6 @@ class City(models.Model):
 class Store(models.Model):
     name = models.CharField(max_length=200)
 
-    my_city = models.ForeignKey(City, on_delete=models.CASCADE)
     def __str__(self):
         return '{}: {}'.format(self.id, self.name)
 
@@ -25,16 +25,14 @@ class Category(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField()
     my_store = models.ForeignKey(Store, on_delete=models.CASCADE)
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     def __str__(self):
         return '{}: {}'.format(self.id, self.name)
 
 
-class Supplier(models.Model):
+class Manager(models.Model):
     name = models.CharField(max_length=200)
     s_name = models.CharField(max_length=200)
-    phone_number = models.CharField(max_length=20)
-    company_name = models.CharField(max_length=200)
-    # created_by = models.ForeignKey(User, on_delete=models.CASCADE, default=2)
 
     def __str__(self):
         return '{}: {}'.format(self.id, self.name)
@@ -45,9 +43,10 @@ class My_Item(models.Model):
     price = models.IntegerField()
     count = models.IntegerField()
     added_date = models.DateField()
-    # created_by = models.ForeignKey(User, on_delete=models.CASCADE, default=2)
+    rating = models.IntegerField()
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+
     my_category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    my_supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE)
 
 
     def __str__(self):
@@ -58,7 +57,6 @@ class Delivery(models.Model):
     name = models.CharField(max_length=200)
     s_name = models.CharField(max_length=200)
     company_name = models.CharField(max_length=200)
-    # created_by = models.ForeignKey(User, on_delete=models.CASCADE, default=2)
 
     def __str__(self):
         return '{}: {}'.format(self.id, self.name)
@@ -70,9 +68,8 @@ class Customer(models.Model):
     credit_card = models.CharField(max_length=20)
     qiwi_card = models.CharField(max_length=20)
     address = models.CharField(max_length=200)
-    # created_by = models.ForeignKey(User, on_delete=models.CASCADE, default=2)
+
     my_city = models.ForeignKey(City, on_delete=models.CASCADE)
-    # my_store = models.ForeignKey(Store, on_delete=models.CASCADE)
 
     def __str__(self):
         return '{}: {}'.format(self.id, self.name)
@@ -92,3 +89,8 @@ class My_Order(models.Model):
         return '{}: {}'.format(self.id, self.name)
 
 
+class ItemReview(models.Model):
+    review_text = models.TextField()
+
+    rev_customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    rev_item = models.ForeignKey(My_Item, on_delete=models.CASCADE)

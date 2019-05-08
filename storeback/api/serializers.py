@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from api.models import Country, City, Store, Category, Customer, My_Item, Supplier, Delivery, My_Order
+from api.models import Country, City, Store, Category, Customer, My_Item, Manager, Delivery, My_Order
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -20,7 +20,7 @@ class CitySerializer(serializers.ModelSerializer):
 class StoreSerializer(serializers.ModelSerializer):
     class Meta:
         model = Store
-        fields = ('id', 'name', 'my_city')
+        fields = ('id', 'name')
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -32,10 +32,10 @@ class MyItemSerializer(serializers.ModelSerializer):
         model = My_Item
         fields = ('id', 'name', 'description', 'price', 'count', 'added_date', 'my_category', 'my_supplier')
 
-class SupplierSerializer(serializers.ModelSerializer):
+class ManagerSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Supplier
-        fields = ('id', 'name', 's_name', 'phone_number', 'company_name')
+        model = Manager
+        fields = ('id', 'name', 's_name')
 
 class DeliverySerializer(serializers.ModelSerializer):
     class Meta:
