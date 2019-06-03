@@ -10,3 +10,5 @@
 ### Project Description
 
 Always not enough time to make a purchase? Order in our online store and we will deliver anywhere in the world by any means of transport. Your comfort is our job.
+
+<h4>Front-End: Angular; Back-end: Django</h4>
