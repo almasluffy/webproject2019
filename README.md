@@ -1,4 +1,4 @@
-# OnlineShop - online shop
+# OnlineShop 
 
 ### Team Members
 | Name | GitHub account |
