@@ -1,4 +1,4 @@
-# PorqueShop - online shop
+# OnlineShop - online shop
 
 ### Team Members
 | Name | GitHub account |
